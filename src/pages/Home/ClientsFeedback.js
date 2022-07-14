@@ -31,7 +31,10 @@ const ClientsFeedback = () => {
     };
     return (
         <div className='my-10'>
-            <h1><span className='text-3xl font-bold text-primary'>Clients </span> <span className='text-3xl font-bold text-secondary'>Feedback</span></h1>
+            <div className='md:flex justify-between items-center mb-5'>
+                <h1><span className='text-3xl font-bold text-primary'>Clients </span> <span className='text-3xl font-bold text-secondary'>Feedback</span></h1>
+                <button className='btn btn-outline btn-primary'>View All</button>
+            </div>
             <div className='px-7 md:px-0'>
                 <Carousel
                     swipeable={false}

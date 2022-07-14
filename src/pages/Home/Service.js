@@ -10,7 +10,7 @@ const Service = ({ service }) => {
                 <h2 class="card-title">{name}</h2>
                 <button class="btn btn-primary hover:btn-secondary">
                     Learn More
-                    <BsArrowRight className='' />
+                    <BsArrowRight className='ml-2' />
                 </button>
             </div>
         </div>
