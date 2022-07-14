@@ -6,6 +6,7 @@ import { AiFillInstagram } from 'react-icons/ai';
 import { AiFillLinkedin } from 'react-icons/ai';
 import { BsPhoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -32,12 +33,12 @@ const Header = () => {
                 <div className='flex items-center'>
                     <div className='mr-3 flex items-center'>
                         <p className='text-white mx-1'>
-                            <span className='mx-1'>Login</span>
+                            <Link to="/login" className='mx-1'>Login</Link>
                         </p>
                         <p className=' text-white border-r-2 mx-1 h-5'>
                         </p>
                         <p className='text-white mx-1'>
-                            <span className='mx-1'>Register</span>
+                            <Link to="/register" className='mx-1'>Register</Link>
                         </p>
                     </div>
                     <div className='ml-3 flex items-center'>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../Authentication/Login';
 import HeaderBanner from '../Header/HeaderBanner';
 import Footer from '../shared/Footer';
 import Blog from './Blog';
