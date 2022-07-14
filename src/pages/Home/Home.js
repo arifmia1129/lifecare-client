@@ -3,6 +3,7 @@ import HeaderBanner from '../Header/HeaderBanner';
 import ClientsPartners from './ClientsPartners';
 import CourseBanner from './CourseBanner';
 import DetailsSummary from './DetailsSummary';
+import Services from './Services';
 import TeamBanner from './TeamBanner';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <CourseBanner />
             <TeamBanner />
             <ClientsPartners />
+            <Services />
         </div>
     );
 };
