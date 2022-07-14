@@ -1,5 +1,6 @@
 import React from 'react';
 import HeaderBanner from '../Header/HeaderBanner';
+import ClientsFeedback from './ClientsFeedback';
 import ClientsPartners from './ClientsPartners';
 import CourseBanner from './CourseBanner';
 import DetailsSummary from './DetailsSummary';
@@ -15,6 +16,7 @@ const Home = () => {
             <TeamBanner />
             <ClientsPartners />
             <Services />
+            <ClientsFeedback />
         </div>
     );
 };
