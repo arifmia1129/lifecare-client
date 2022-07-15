@@ -16,9 +16,6 @@ const Header = () => {
     if (loading) {
         return <p className='h-screen flex justify-center items-center'>Loading...</p>;
     }
-    if (user) {
-        console.log(user);
-    }
     return (
         <div className='sticky top-0 z-20'>
             <div className='bg-primary md:flex justify-around p-3'>
