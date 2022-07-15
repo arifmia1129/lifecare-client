@@ -7,8 +7,18 @@ import { AiFillLinkedin } from 'react-icons/ai';
 import { BsPhoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
+import auth from '../../firebase.init';
 
 const Header = () => {
+    const [user, loading] = useAuthState(auth);
+    if (loading) {
+        return <p className='h-screen flex justify-center items-center'>Loading...</p>;
+    }
+    if (user) {
+        console.log(user);
+    }
     return (
         <div className='sticky top-0 z-20'>
             <div className='bg-primary md:flex justify-around p-3'>
@@ -32,14 +42,23 @@ const Header = () => {
                 </div>
                 <div className='flex items-center'>
                     <div className='mr-3 flex items-center'>
-                        <p className='text-white mx-1'>
-                            <Link to="/login" className='mx-1'>Login</Link>
-                        </p>
-                        <p className=' text-white border-r-2 mx-1 h-5'>
-                        </p>
-                        <p className='text-white mx-1'>
-                            <Link to="/register" className='mx-1'>Register</Link>
-                        </p>
+                        {
+                            !user && <>
+                                <p className='text-white mx-1'>
+                                    <Link to="/login" className='mx-1'>Login</Link>
+                                </p>
+                                <p className=' text-white border-r-2 mx-1 h-5'>
+                                </p>
+                                <p className='text-white mx-1'>
+                                    <Link to="/register" className='mx-1'>Register</Link>
+                                </p>
+                            </>
+                        }
+                        {
+                            user && <p className='text-white mx-1 border-2 rounded-lg p-1'>
+                                {user?.displayName}
+                            </p>
+                        }
                     </div>
                     <div className='ml-3 flex items-center'>
                         <p className='text-white mx-1'>
@@ -54,6 +73,9 @@ const Header = () => {
                         <p className='text-white mx-1'>
                             <a target="_blank" rel="noreferrer" href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=+arif.vtti@gmail.com"><AiFillLinkedin /></a>
                         </p>
+                        {
+                            user && <button onClick={() => signOut(auth)} className='mx-3 text-white border p-1 rounded-xl'>Sign out</button>
+                        }
                     </div>
                 </div>
             </div>

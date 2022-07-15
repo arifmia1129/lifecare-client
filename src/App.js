@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Login from './pages/Authentication/Login';
 import Register from './pages/Authentication/Register';
 import Home from './pages/Home/Home';
 import Header from './pages/shared/Header';
 import Navbar from './pages/shared/Navbar';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -17,6 +19,17 @@ function App() {
           <Route path='/register' element={<Register />} />
         </Routes>
       </Navbar>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
