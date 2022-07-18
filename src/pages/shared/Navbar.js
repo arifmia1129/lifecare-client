@@ -15,8 +15,10 @@ const Navbar = ({ children }) => {
           <div class="flex-1 px-2 mx-2">
             <div>
               <p className='text-2xl font-bold ml-1'>
-                <span className='text-primary'>Life </span>
-                <span className='text-secondary'>Care</span>
+                <Link to="/">
+                  <span className='text-primary'>Life </span>
+                  <span className='text-secondary'>Care</span>
+                </Link>
               </p>
               <small>Make <span className='text-primary'>Life</span> Beautiful</small>
             </div>
@@ -27,7 +29,7 @@ const Navbar = ({ children }) => {
               <li><a>Doctors</a></li>
               <li><a>Services</a></li>
               <li><a>Courses</a></li>
-              <li><a>Blogs</a></li>
+              <li><Link to="/blog">Blog</Link></li>
             </ul>
           </div>
         </div>

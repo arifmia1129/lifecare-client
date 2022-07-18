@@ -18,7 +18,7 @@ const Header = () => {
     }
     return (
         <div className='sticky top-0 z-20'>
-            <div className='bg-primary md:flex justify-around p-3'>
+            <div className='bg-primary md:flex justify-around items-center p-5'>
                 <div className='md:flex items-center'>
                     <p className='flex items-center text-white  mx-1'>
                         <span className='mx-1'><AiFillPhone /></span>
@@ -37,7 +37,7 @@ const Header = () => {
                         <a target="_blank" rel="noreferrer" href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=+arif.vtti@gmail.com">Email</a>
                     </p>
                 </div>
-                <div className='flex items-center'>
+                <div className='flex items-center my-5 md:my-0'>
                     <div className='mr-3 flex items-center'>
                         {
                             !user && <>
@@ -74,6 +74,9 @@ const Header = () => {
                             user && <button onClick={() => signOut(auth)} className='mx-3 text-white border p-1 rounded-xl'>Sign out</button>
                         }
                     </div>
+                </div>
+                <div>
+                    <Link className='font-bold text-xl bg-white p-2 rounded-lg' to="appointment">Appointment</Link>
                 </div>
             </div>
         </div>

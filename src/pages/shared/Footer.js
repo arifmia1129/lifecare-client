@@ -2,13 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
-            <div class="grid grid-flow-col gap-4">
-                <a class="link link-hover">About us</a>
-                <a class="link link-hover">Contact</a>
-                <a class="link link-hover">Jobs</a>
-                <a class="link link-hover">Press kit</a>
-            </div>
+        <footer class="footer footer-center py-10 bg-base-200 text-base-content rounded">
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                 <div>
                     <div>
@@ -28,8 +22,8 @@ const Footer = () => {
                 </div>
                 <div>
                     <div class="mapouter">
-                        <div class="gmap_canvas w-full">
-                            <iframe title='map' height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Gobindaganj&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        <div class="gmap_canvas">
+                            <iframe className='h-96 w-full' title='map' id="gmap_canvas" src="https://maps.google.com/maps?q=Gobindaganj&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                             </iframe>
                         </div>
                     </div>
