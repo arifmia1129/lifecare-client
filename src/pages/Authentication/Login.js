@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -24,11 +25,12 @@ const Login = () => {
     let errorMessage;
     const navigate = useNavigate();
 
+    const token = useToken(user || gUser);
     useEffect(() => {
-        if (user || gUser) {
+        if (token) {
             navigate("/");
         }
-    }, [user, gUser, navigate])
+    }, [token, navigate]);
 
     if (error || gError || rError) {
         errorMessage = <p>{error?.message.split(":")[1] || gError?.message.split(":")[1] || rError?.message.split(":")[1]} </p>
@@ -36,8 +38,6 @@ const Login = () => {
     if (loading || gLoading || sending) {
         return <p className='h-screen flex justify-center items-center'>Loading...</p>;
     }
-
-
 
     const handleLogin = () => {
         signInWithEmailAndPassword(email, password);
@@ -56,14 +56,19 @@ const Login = () => {
                     <label class="label">
                         <span class="label-text">Email</span>
                     </label>
-                    <input autoComplete={false} onChange={e => setEmail(e.target.value)} type="text" placeholder="email" class="input input-bordered" />
+                    <input autoComplete={false} onChange={e => setEmail(e.target.value)} type="text" placeholder="email" class="input input-bordered focus:outline-none" />
                 </div>
                 <div class="form-control">
                     <label class="label">
                         <span class="label-text">Password</span>
                     </label>
-                    <input onChange={e => setPassword(e.target.value)} type={show ? "text" : "password"} placeholder="password" class="input input-bordered" />
-                    <button onClick={() => setShow(!show)} className='w-10 btn btn-xs relative right-[-190px] md:right-[-220px] lg:right-[-220px] top-[-35px]'>{show ? "hide" : "show"}</button>
+                    <div class="flex justify-between items-center input input-bordered">
+                        <input className='outline-none' onChange={e => setPassword(e.target.value)} type={show ? "text" : "password"} placeholder="password" />
+                        {
+                            password &&
+                            <button onClick={() => setShow(!show)} className='w-10 btn btn-xs'>{show ? "hide" : "show"}</button>
+                        }
+                    </div>
                     <p><small className='text-xs text-red-500'>{errorMessage && errorMessage}</small></p>
                     <label class="label">
                         <button onClick={handlePasswordReset} className='text-xs'>Forgot password?</button>

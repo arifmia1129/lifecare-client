@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const [name, setName] = useState("");
@@ -21,17 +22,17 @@ const Register = () => {
 
     let errorMessage;
     const navigate = useNavigate();
-
+    const token = useToken(user || gUser);
     useEffect(() => {
-        if (user || gUser) {
+        if (token) {
             navigate("/");
         }
-    }, [user, gUser, navigate])
+    }, [token, navigate]);
 
     if (error || gError) {
         errorMessage = <p>{error?.message.split(":")[1] || gError?.message.split(":")[1]} </p>
     }
-    if (loading || updating || gLoading) {
+    if (loading || updating) {
         return <p className='h-screen flex justify-center items-center'>
             Check email inbox or spam folder for verify email....
         </p>;
@@ -55,20 +56,25 @@ const Register = () => {
                     <label class="label">
                         <span class="label-text">Name</span>
                     </label>
-                    <input onChange={e => setName(e.target.value)} type="text" placeholder="name" class="input input-bordered" />
+                    <input onChange={e => setName(e.target.value)} type="text" placeholder="name" class="input input-bordered focus:outline-none" />
                 </div>
                 <div class="form-control">
                     <label class="label">
                         <span class="label-text">Email</span>
                     </label>
-                    <input onChange={e => setEmail(e.target.value)} type="text" placeholder="email" class="input input-bordered" />
+                    <input onChange={e => setEmail(e.target.value)} type="text" placeholder="email" class="input input-bordered focus:outline-none" />
                 </div>
                 <div class="form-control">
                     <label class="label">
                         <span class="label-text">Password</span>
                     </label>
-                    <input onChange={e => setPassword(e.target.value)} type={show ? "text" : "password"} placeholder="password" class="input input-bordered" />
-                    <button onClick={() => setShow(!show)} className='w-10 btn btn-xs relative right-[-190px] md:right-[-220px] lg:right-[-220px] top-[-35px]'>{show ? "hide" : "show"}</button>
+                    <div class="flex justify-between items-center input input-bordered">
+                        <input className='outline-none' onChange={e => setPassword(e.target.value)} type={show ? "text" : "password"} placeholder="password" />
+                        {
+                            password &&
+                            <button onClick={() => setShow(!show)} className='w-10 btn btn-xs'>{show ? "hide" : "show"}</button>
+                        }
+                    </div>
                     <p><small className='text-xs text-red-500'>{errorMessage && errorMessage}</small></p>
 
 
