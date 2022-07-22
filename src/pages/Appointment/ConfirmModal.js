@@ -1,7 +1,13 @@
 import { format } from 'date-fns';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDateTime, setDateTimeStatus, details, setDetails, setDetailsStatus, setConfirmStatus }) => {
+    const [user, loading] = useAuthState(auth);
+    if (loading) {
+        return <p className='h-screen flex justify-center items-center'>Loading...</p>;
+    }
     const { branch, department, session, consultant } = service;
     const { date, time } = dateTime;
     const { patient, phone, address } = details;
@@ -15,7 +21,8 @@ const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDate
         time,
         patient,
         phone,
-        address
+        address,
+        email: user.email
     }
 
     const handleEdit = () => {
@@ -27,8 +34,19 @@ const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDate
         setDetailsStatus(false);
     }
     const handleConfirm = () => {
-        setConfirmStatus(true);
-        console.log(appointment);
+        fetch("http://localhost:5000/appointment", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(appointment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged && data.insertedId) {
+                    setConfirmStatus(true);
+                }
+            })
     }
     return (
         <div>
