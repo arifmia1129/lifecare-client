@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 const Service = ({ setService, setServiceStatus }) => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
         setService(data);
         setServiceStatus(true);
     };

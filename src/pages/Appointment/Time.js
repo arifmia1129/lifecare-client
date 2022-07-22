@@ -1,4 +1,3 @@
-import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
@@ -6,7 +5,6 @@ import { toast } from "react-toastify";
 
 
 const Time = ({ setDateTime, setDateTimeStatus }) => {
-    const [selected, setSelected] = useState("");
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
     const timeSlot10 = [
@@ -19,9 +17,6 @@ const Time = ({ setDateTime, setDateTimeStatus }) => {
         "10.59"
     ]
     const onSubmit = () => {
-        if (selected) {
-            setDate(format(selected, 'PP'));
-        }
         if (date && time) {
             const dateTime = {
                 date,
@@ -41,8 +36,8 @@ const Time = ({ setDateTime, setDateTimeStatus }) => {
                     <p>Please select date</p>
                     <DayPicker className='w-72'
                         mode="single"
-                        selected={selected}
-                        onSelect={setSelected}
+                        selected={date}
+                        onSelect={setDate}
                     />
                 </div>
                 <div>

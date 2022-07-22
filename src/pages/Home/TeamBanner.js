@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import team from "../../assests/images/header-2.jpg"
 
 const TeamBanner = () => {
@@ -6,7 +7,7 @@ const TeamBanner = () => {
         <div className='my-10'>
             <div className='md:flex justify-between items-center mb-5'>
                 <h1><span className='text-3xl font-bold text-primary'>Our </span> <span className='text-3xl font-bold text-secondary'>Team</span></h1>
-                <button className='btn btn-outline btn-primary'>View Team</button>
+                <Link to="doctors" className='btn btn-outline btn-primary'>View Team</Link>
             </div>
             <div className='lg:flex justify-between items-center lg:bg-secondary'>
                 <div className='flex-1 lg:text-white lg:p-10'>

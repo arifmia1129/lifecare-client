@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import About from './pages/About';
 import Blog from './pages/Blog';
 import Appointment from './pages/Appointment/Appointment';
+import Doctors from './pages/Doctors/Doctors';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/appointment' element={<Appointment />} />
+          <Route path='/doctors' element={<Doctors />} />
         </Routes>
       </Navbar>
       <ToastContainer

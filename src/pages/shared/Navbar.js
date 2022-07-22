@@ -26,7 +26,7 @@ const Navbar = ({ children }) => {
           <div class="flex-none hidden lg:block">
             <ul class="menu menu-horizontal">
               <li><Link to="/about">About us</Link></li>
-              <li><a>Doctors</a></li>
+              <li><Link to="/doctors">Doctors</Link></li>
               <li><a>Services</a></li>
               <li><a>Courses</a></li>
               <li><Link to="/blog">Blog</Link></li>
@@ -37,12 +37,12 @@ const Navbar = ({ children }) => {
       </div>
       <div class="drawer-side">
         <label for="my-drawer-3" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
-          <li><a>About us</a></li>
-          <li><a>Doctors</a></li>
+        <ul class="menu p-4 overflow-y-auto w-fit bg-base-100">
+          <li><Link to="/about">About us</Link></li>
+          <li><Link to="/doctors">Doctors</Link></li>
           <li><a>Services</a></li>
           <li><a>Courses</a></li>
-          <li><a>Blogs</a></li>
+          <li><Link to="/blog">Blog</Link></li>
         </ul>
 
       </div>

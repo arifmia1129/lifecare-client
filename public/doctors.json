@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Dr. Binu",
+        "designation": "MBBS, BCS (Health)",
+        "department": "Psychologist",
+        "photo": "https://i.ibb.co/j5F6S0K/doctor-6.jpg"
+    },
+    {
+        "name": "Dr. Arif",
+        "designation": "MBBS, BCS (Health)",
+        "department": "ENT",
+        "photo": "https://i.ibb.co/F79J6xd/doctor-1.jpg"
+    },
+    {
+        "name": "Dr. Shahin",
+        "designation": "MBBS, BCS (Health)",
+        "department": "Counselor",
+        "photo": "https://i.ibb.co/4NQn7qZ/doctor-3.jpg"
+    },
+    {
+        "name": "Dr. Shanjida",
+        "designation": "MBBS, BCS (Health)",
+        "department": "Counselor",
+        "photo": " https://i.ibb.co/jL3NGSj/doctor-4.jpg"
+    },
+    {
+        "name": "Dr. Sanjid",
+        "designation": "MBBS, BCS (Health)",
+        "department": "Counselor",
+        "photo": "https://i.ibb.co/1JryQ95/doctor-5.jpg"
+    },
+    {
+        "name": "Dr. Tasmin",
+        "designation": "MBBS, BCS (Health)",
+        "department": "Counselor",
+        "photo": "https://i.ibb.co/Bn2x9rt/doctor-2.jpg"
+    }
+]

@@ -39,7 +39,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <img src={team} class="max-w-sm rounded-lg shadow-2xl" alt='' />
+                <img src={team} class="max-w-sm rounded-lg shadow-2xl w-full" alt='' />
             </div>
         </div>
     );
