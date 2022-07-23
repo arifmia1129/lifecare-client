@@ -18,26 +18,26 @@ const Header = () => {
     }
     return (
         <div className='sticky top-0 z-20'>
-            <div className='bg-primary md:flex justify-around items-center p-5'>
-                <div className='md:flex items-center'>
+            <div className='bg-primary lg:flex justify-around items-center p-5'>
+                <div className='lg:flex items-center'>
                     <p className='flex items-center text-white  mx-1'>
                         <span className='mx-1'><AiFillPhone /></span>
                         <span className='mx-1'>+8809649676331</span>
                     </p>
-                    <p className='hidden md:block text-white border-r-2 mx-1 h-5'>
+                    <p className='hidden lg:block text-white border-r-2 mx-1 h-5'>
                     </p>
                     <p className='flex items-center text-white mx-1'>
                         <span className='mx-1'><BsPhoneFill /></span>
                         <span className='mx-1'>+8801849676331</span>
                     </p>
-                    <p className='hidden md:block text-white border-r-2 mx-1 h-5'>
+                    <p className='hidden lg:block text-white border-r-2 mx-1 h-5'>
                     </p>
                     <p className='flex items-center text-white mx-1'>
                         <span className='mx-1'><MdEmail /></span>
                         <a target="_blank" rel="noreferrer" href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=+arif.vtti@gmail.com">Email</a>
                     </p>
                 </div>
-                <div className='flex items-center my-5 md:my-0'>
+                <div className='flex items-center my-5 lg:my-0'>
                     <div className='mr-3 flex items-center'>
                         {
                             !user && <>
