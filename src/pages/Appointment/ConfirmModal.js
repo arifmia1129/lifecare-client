@@ -15,9 +15,9 @@ const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDate
     const appointment = {
         branch,
         department,
-        "session length": session,
+        length: session,
         consultant,
-        "date": formattedDate,
+        date: formattedDate,
         time,
         patient,
         phone,

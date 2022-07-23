@@ -11,6 +11,9 @@ import About from './pages/About';
 import Blog from './pages/Blog';
 import Appointment from './pages/Appointment/Appointment';
 import Doctors from './pages/Doctors/Doctors';
+import Dashboard from './pages/Dashboard/Dashboard';
+import MyAppointment from './pages/Dashboard/MyAppointment';
+import WelcomeDashboard from './pages/Dashboard/WelcomeDashboard';
 
 function App() {
   return (
@@ -25,6 +28,10 @@ function App() {
           <Route path='/blog' element={<Blog />} />
           <Route path='/appointment' element={<Appointment />} />
           <Route path='/doctors' element={<Doctors />} />
+          <Route path='/dashboard' element={<Dashboard />}>
+            <Route index element={<WelcomeDashboard />} />
+            <Route path='/dashboard/my-appointment' element={<MyAppointment />} />
+          </Route>
         </Routes>
       </Navbar>
       <ToastContainer

@@ -27,9 +27,10 @@ const Navbar = ({ children }) => {
             <ul class="menu menu-horizontal">
               <li><Link to="/about">About us</Link></li>
               <li><Link to="/doctors">Doctors</Link></li>
-              <li><a>Services</a></li>
-              <li><a>Courses</a></li>
+              <li><Link to="/doctors">Services</Link></li>
+              <li><Link to="/doctors">Courses</Link></li>
               <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/dashboard">Dashboard</Link></li>
             </ul>
           </div>
         </div>
@@ -40,9 +41,10 @@ const Navbar = ({ children }) => {
         <ul class="menu p-4 overflow-y-auto w-fit bg-base-100">
           <li><Link to="/about">About us</Link></li>
           <li><Link to="/doctors">Doctors</Link></li>
-          <li><a>Services</a></li>
-          <li><a>Courses</a></li>
+          <li><Link to="/doctors">Services</Link></li>
+          <li><Link to="/doctors">Courses</Link></li>
           <li><Link to="/blog">Blog</Link></li>
+          <li><Link to="/dashboard">Dashboard</Link></li>
         </ul>
 
       </div>
