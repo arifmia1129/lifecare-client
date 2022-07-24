@@ -14,6 +14,7 @@ import Doctors from './pages/Doctors/Doctors';
 import Dashboard from './pages/Dashboard/Dashboard';
 import MyAppointment from './pages/Dashboard/MyAppointment';
 import WelcomeDashboard from './pages/Dashboard/WelcomeDashboard';
+import PrivateRoute from "./pages/Authentication/PrivateRoute";
 
 function App() {
   return (
@@ -26,9 +27,13 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/about' element={<About />} />
           <Route path='/blog' element={<Blog />} />
-          <Route path='/appointment' element={<Appointment />} />
+          <Route path='/appointment' element={<PrivateRoute>
+            <Appointment />
+          </PrivateRoute>} />
           <Route path='/doctors' element={<Doctors />} />
-          <Route path='/dashboard' element={<Dashboard />}>
+          <Route path='/dashboard' element={<PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>}>
             <Route index element={<WelcomeDashboard />} />
             <Route path='/dashboard/my-appointment' element={<MyAppointment />} />
           </Route>

@@ -1,9 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
-import AppointmentDetailsModal from './AppointmentDetailsModal';
 
-const SingleAppointment = ({ appointment }) => {
-    const [myAppointment, setMyAppointment] = useState(null);
+const SingleAppointment = ({ appointment, setMyAppointment }) => {
     const { department } = appointment;
     return (
         <div>
@@ -16,9 +13,7 @@ const SingleAppointment = ({ appointment }) => {
                     <button className='btn btn-xs btn-outline'>unpaid</button>
                 </p>
             </div>
-            {
-                myAppointment && <AppointmentDetailsModal myAppointment={myAppointment} />
-            }
+
         </div>
     );
 };

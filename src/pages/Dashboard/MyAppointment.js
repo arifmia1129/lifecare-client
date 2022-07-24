@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import AppointmentDetailsModal from './AppointmentDetailsModal';
 import SingleAppointment from './SingleAppointment';
 
 const MyAppointment = () => {
     const [appointments, setAppointments] = useState([]);
+    const [myAppointment, setMyAppointment] = useState(null);
     useEffect(() => {
         fetch("http://localhost:5000/appointment")
             .then(res => res.json())
             .then(data => setAppointments(data))
-    }, [])
+    }, []);
     return (
         <div>
             <h1 className='mb-2'><span className='text-xl font-bold text-primary'>My </span> <span className='text-xl font-bold text-secondary'>Appointments</span></h1>
@@ -21,7 +23,11 @@ const MyAppointment = () => {
                     key={appointment._id}
                     index={index + 1}
                     appointment={appointment}
+                    setMyAppointment={setMyAppointment}
                 />)
+            }
+            {
+                myAppointment && <AppointmentDetailsModal myAppointment={myAppointment} setMyAppointment={setMyAppointment} />
             }
         </div>
     );
