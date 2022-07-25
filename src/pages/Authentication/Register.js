@@ -44,6 +44,7 @@ const Register = () => {
     }
 
     const handleRegister = async () => {
+        localStorage.removeItem("token");
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
     }
@@ -89,7 +90,10 @@ const Register = () => {
                 </div>
                 <div class="divider">OR</div>
                 <div className='flex justify-center items-center'>
-                    <button onClick={() => signInWithGoogle()} className='btn btn-outline btn-secondary'>Continue with Google</button>
+                    <button onClick={() => {
+                        localStorage.removeItem("token");
+                        signInWithGoogle();
+                    }} className='btn btn-outline btn-secondary'>Continue with Google</button>
                 </div>
             </div>
         </div>

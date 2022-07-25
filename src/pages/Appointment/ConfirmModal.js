@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -37,11 +38,17 @@ const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDate
         fetch("http://localhost:5000/appointment", {
             method: "POST",
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify(appointment)
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return signOut(auth);
+                }
+                return res.json()
+            })
             .then(data => {
                 if (data.acknowledged && data.insertedId) {
                     setConfirmStatus(true);

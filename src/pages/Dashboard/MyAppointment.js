@@ -1,13 +1,27 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
+import auth from '../../firebase.init';
 import AppointmentDetailsModal from './AppointmentDetailsModal';
+import CancelModal from './CancelModal';
 import SingleAppointment from './SingleAppointment';
 
 const MyAppointment = () => {
     const [appointments, setAppointments] = useState([]);
     const [myAppointment, setMyAppointment] = useState(null);
+    const [cancelAppointment, setCancelAppointment] = useState(null);
     useEffect(() => {
-        fetch("http://localhost:5000/appointment")
-            .then(res => res.json())
+        fetch("http://localhost:5000/appointment", {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    localStorage.removeItem("token");
+                    return signOut(auth);
+                }
+                return res.json()
+            })
             .then(data => setAppointments(data))
     }, []);
     return (
@@ -24,10 +38,14 @@ const MyAppointment = () => {
                     index={index + 1}
                     appointment={appointment}
                     setMyAppointment={setMyAppointment}
+                    setCancelAppointment={setCancelAppointment}
                 />)
             }
             {
                 myAppointment && <AppointmentDetailsModal myAppointment={myAppointment} setMyAppointment={setMyAppointment} />
+            }
+            {
+                cancelAppointment && <CancelModal cancelAppointment={cancelAppointment} setCancelAppointment={setCancelAppointment} />
             }
         </div>
     );

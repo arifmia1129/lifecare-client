@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleAppointment = ({ appointment, setMyAppointment }) => {
+const SingleAppointment = ({ appointment, setMyAppointment, setCancelAppointment }) => {
     const { department } = appointment;
     return (
         <div>
@@ -10,7 +10,7 @@ const SingleAppointment = ({ appointment, setMyAppointment }) => {
                     <label onClick={() => setMyAppointment(appointment)} for="my-modal-3" class="btn modal-button btn-xs btn-primary">Details</label>
                 </p>
                 <p className='w-16'>
-                    <button className='btn btn-xs btn-outline'>unpaid</button>
+                    <label onClick={() => setCancelAppointment(appointment)} for="cancel-modal" class="btn modal-button btn-xs btn-outline btn-error">Cancel</label>
                 </p>
             </div>
 
