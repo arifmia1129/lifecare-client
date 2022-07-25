@@ -3,7 +3,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const CancelModal = ({ cancelAppointment, setCancelAppointment }) => {
+const CancelModal = ({ cancelAppointment, setCancelAppointment, refetch }) => {
     const { _id, address, branch, consultant, date, department, length, patient, phone, time } = cancelAppointment;
     const handleConfirm = () => {
         fetch(`http://localhost:5000/appointment/${_id}`, {
@@ -21,6 +21,7 @@ const CancelModal = ({ cancelAppointment, setCancelAppointment }) => {
             })
             .then(data => {
                 if (data.deletedCount) {
+                    refetch();
                     toast.success("Successfully canceled!")
                 }
             })
