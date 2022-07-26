@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { toast } from 'react-toastify';
 import useToken from '../../hooks/useToken';
 
 const Register = () => {
@@ -10,6 +9,7 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [show, setShow] = useState(false);
+    const location = useLocation();
     const [updateProfile, updating] = useUpdateProfile(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [
@@ -22,6 +22,7 @@ const Register = () => {
 
     let errorMessage;
     const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
     const token = useToken(user || gUser);
     useEffect(() => {
         if (token) {

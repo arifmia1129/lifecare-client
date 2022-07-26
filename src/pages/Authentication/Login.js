@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
@@ -10,6 +10,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [show, setShow] = useState(false);
+    const location = useLocation();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [sendPasswordResetEmail, sending, rError] = useSendPasswordResetEmail(
         auth
@@ -24,13 +25,13 @@ const Login = () => {
 
     let errorMessage;
     const navigate = useNavigate();
-
+    const from = location.state?.from?.pathname || "/";
     const token = useToken(user || gUser);
     useEffect(() => {
         if (token) {
-            navigate("/");
+            navigate(from, { replace: true });
         }
-    }, [token, navigate]);
+    }, [token, navigate, from]);
 
     if (error || gError || rError) {
         errorMessage = <p>{error?.message.split(":")[1] || gError?.message.split(":")[1] || rError?.message.split(":")[1]} </p>
