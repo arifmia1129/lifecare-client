@@ -22,6 +22,7 @@ const Confirm = ({ service, dateTime, details, setService, setServiceStatus, set
                     <p className='font-bold text-xl'>Date & Time:</p>
                     <p>Date:{formattedDate}</p>
                     <p>Time:{time}</p>
+                    <p>Fee: $99</p>
                 </div>
                 <div className='md:border-2 rounded-lg p-5'>
                     <p className='font-bold text-xl'>Details:</p>

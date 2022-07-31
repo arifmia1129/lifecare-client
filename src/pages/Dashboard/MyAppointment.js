@@ -5,12 +5,13 @@ import AppointmentDetailsModal from './AppointmentDetailsModal';
 import CancelModal from './CancelModal';
 import SingleAppointment from './SingleAppointment';
 import { useQuery } from '@tanstack/react-query'
+import { useAuthState } from 'react-firebase-hooks/auth';
 const MyAppointment = () => {
     const [myAppointment, setMyAppointment] = useState(null);
     const [cancelAppointment, setCancelAppointment] = useState(null);
-
-    const { isLoading, data: appointments, refetch } = useQuery(['appointments'], () =>
-        fetch("http://localhost:5000/appointment", {
+    const [user, loading] = useAuthState(auth);
+    const { isLoading, data: appointments, refetch } = useQuery(['appointments', user], () =>
+        fetch(`http://localhost:5000/appointment?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -22,17 +23,13 @@ const MyAppointment = () => {
             return res.json()
         })
     )
-    if (isLoading) {
+    if (isLoading || loading) {
         return <p className='h-screen flex justify-center items-center'>Loading...</p>;
     }
     return (
         <div>
             <h1 className='mb-2'><span className='text-xl font-bold text-primary'>My </span> <span className='text-xl font-bold text-secondary'>Appointments</span></h1>
-            <div className='flex justify-between items-center border-b-4 text-gray-500'>
-                <p className='w-16'>Appointment</p>
-                <p className='w-16'>Details</p>
-                <p className='w-16'>Status</p>
-            </div>
+
             {
                 appointments.map((appointment, index) => <SingleAppointment
                     key={appointment._id}
