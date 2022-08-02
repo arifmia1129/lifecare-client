@@ -1,15 +1,17 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 const ClientsFeedback = () => {
-    const comments = [
-        { id: 1, name: "Binu", comment: "This clinic is the best for health. There are many experience doctor and nurse. They are helpful for patient." },
-        { id: 2, name: "Arif", comment: "This clinic is the best for health. There are many experience doctor and nurse. They are helpful for patient." },
-        { id: 3, name: "Shahin", comment: "This clinic is the best for health. There are many experience doctor and nurse. They are helpful for patient." },
-        { id: 4, name: "Naim", comment: "This clinic is the best for health. There are many experience doctor and nurse. They are helpful for patient." },
-        { id: 5, name: "Shuvo", comment: "This clinic is the best for health. There are many experience doctor and nurse. They are helpful for patient." },
-    ]
-
+    const [comments, setComments] = useState([])
+    useEffect(() => {
+        const getData = async () => {
+            const { data } = await axios.get("http://localhost:5000/review")
+            setComments(data);
+        }
+        getData();
+    }, [])
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -55,7 +57,7 @@ const ClientsFeedback = () => {
                     itemClass="carousel-item-padding-40-px"
                 >
                     {
-                        comments.map(comment => <div className='mb-10 md:border md:p-5 m-5'>
+                        comments.map(comment => <div key={comment._id} className='mb-10 md:border md:p-5 m-5'>
                             <h1 className='font-bold md:border-b-2 border-black'>{comment.name}</h1>
                             <p>{comment.comment}</p>
                         </div>)
