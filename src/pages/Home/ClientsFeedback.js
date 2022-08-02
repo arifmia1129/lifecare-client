@@ -4,11 +4,20 @@ import { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 const ClientsFeedback = () => {
-    const [comments, setComments] = useState([])
+    const [comments, setComments] = useState([]);
     useEffect(() => {
         const getData = async () => {
             const { data } = await axios.get("http://localhost:5000/review")
-            setComments(data);
+            if (data.length > 6) {
+                const newArr = [];
+                for (let i = (data.length - 6); i < data.length; i++) {
+                    newArr.push(data[i]);
+                }
+                setComments(newArr);
+            }
+            else {
+                setComments(data);
+            }
         }
         getData();
     }, [])

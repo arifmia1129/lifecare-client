@@ -1,6 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const AddReview = () => {
     const [name, setName] = useState("");
@@ -21,7 +22,11 @@ const AddReview = () => {
                 }
                 return res.json()
             })
-            .then((data) => console.log(data));
+            .then((data) => {
+                if (data.insertedId) {
+                    toast.success("Successfully added your review!")
+                }
+            });
     }
     return (
         <div className='p-2'>
