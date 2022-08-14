@@ -33,13 +33,6 @@ const Login = () => {
         }
     }, [token, navigate, from]);
 
-    if (error || gError || rError) {
-        errorMessage = <p>{error?.message.split(":")[1] || gError?.message.split(":")[1] || rError?.message.split(":")[1]} </p>
-    }
-    if (loading || gLoading || sending) {
-        return <p className='h-screen flex justify-center items-center'>Loading...</p>;
-    }
-
     const handleLogin = () => {
         localStorage.removeItem("token");
         signInWithEmailAndPassword(email, password);
@@ -50,6 +43,15 @@ const Login = () => {
             toast.success("Check inbox or spam folder!");
         }
     }
+
+    if (error || gError || rError) {
+        errorMessage = <p>{error?.message.split(":")[1] || gError?.message.split(":")[1] || rError?.message.split(":")[1]} </p>
+    }
+    if (loading || gLoading || sending) {
+        return <p className='h-screen flex justify-center items-center'>Loading...</p>;
+    }
+
+
     return (
         <div class="card-body mx-auto w-[95%] md:w-1/2 lg:w-[30%]">
             <div className='md:shadow-xl md:px-5 md:py-10 md:border rounded-xl'>

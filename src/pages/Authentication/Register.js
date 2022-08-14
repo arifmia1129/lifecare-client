@@ -26,9 +26,15 @@ const Register = () => {
     const token = useToken(user || gUser);
     useEffect(() => {
         if (token) {
-            navigate("/");
+            navigate(from, { replace: true });
         }
-    }, [token, navigate]);
+    }, [token, navigate, from]);
+
+    const handleRegister = async () => {
+        localStorage.removeItem("token");
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+    }
 
     if (error || gError) {
         errorMessage = <p>{error?.message.split(":")[1] || gError?.message.split(":")[1]} </p>
@@ -44,11 +50,7 @@ const Register = () => {
         </p>;
     }
 
-    const handleRegister = async () => {
-        localStorage.removeItem("token");
-        await createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName: name });
-    }
+
 
     return (
         <div class="card-body mx-auto w-[95%] md:w-1/2 lg:w-[30%]">

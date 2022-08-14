@@ -18,6 +18,9 @@ import PrivateRoute from "./pages/Authentication/PrivateRoute";
 import UserProfile from './pages/Dashboard/UserProfile';
 import Payment from './pages/Dashboard/Payment';
 import AddReview from './pages/Dashboard/AddReview';
+import Users from './pages/Dashboard/Users';
+import AllServices from "./pages/AllServices";
+import Courses from "./pages/Courses/Courses";
 
 function App() {
   return (
@@ -30,6 +33,8 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/about' element={<About />} />
           <Route path='/blog' element={<Blog />} />
+          <Route path='/all-services' element={<AllServices />} />
+          <Route path='/courses' element={<Courses />} />
           <Route path='/appointment' element={<PrivateRoute>
             <Appointment />
           </PrivateRoute>} />
@@ -42,6 +47,7 @@ function App() {
             <Route path='/dashboard/profile' element={<UserProfile />} />
             <Route path='/dashboard/payment/:id' element={<Payment />} />
             <Route path='/dashboard/add-review' element={<AddReview />} />
+            <Route path='/dashboard/users' element={<Users />} />
           </Route>
         </Routes>
       </Navbar>

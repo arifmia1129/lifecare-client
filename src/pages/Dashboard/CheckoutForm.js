@@ -9,6 +9,8 @@ import {
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import auth from '../../firebase.init';
+import { Link} from 'react-router-dom';
+
 const CheckoutForm = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
@@ -144,6 +146,9 @@ const CheckoutForm = ({ appointment }) => {
             }
             {
                 tnxId && <p><small className='text-green-500'>{tnxId}</small></p>
+            }
+            {
+                tnxId && <Link className="btn btn-outline btn-primary btn-xs mt-3" to="/dashboard">Go to dashboard</Link>
             }
             {
                 errorMessage && <p><small className='text-red-500'>{errorMessage}</small></p>

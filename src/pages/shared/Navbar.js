@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = ({ children }) => {
   return (
@@ -25,12 +25,12 @@ const Navbar = ({ children }) => {
           </div>
           <div class="flex-none hidden lg:block">
             <ul class="menu menu-horizontal">
-              <li><Link to="/about">About us</Link></li>
-              <li><Link to="/doctors">Doctors</Link></li>
-              <li><Link to="/doctors">Services</Link></li>
-              <li><Link to="/doctors">Courses</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/dashboard">Dashboard</Link></li>
+              <li><NavLink className="rounded-lg" to="/about">About us</NavLink></li>
+              <li><NavLink className="rounded-lg" to="/doctors">Doctors</NavLink></li>
+              <li><NavLink className="rounded-lg" to="/all-services">Services</NavLink></li>
+              <li><NavLink className="rounded-lg" to="/courses">Courses</NavLink></li>
+              <li><NavLink className="rounded-lg" to="/blog">Blog</NavLink></li>
+              <li><NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink></li>
             </ul>
           </div>
         </div>
@@ -39,12 +39,12 @@ const Navbar = ({ children }) => {
       <div class="drawer-side">
         <label for="my-drawer-3" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-fit bg-base-100">
-          <li><Link to="/about">About us</Link></li>
-          <li><Link to="/doctors">Doctors</Link></li>
-          <li><Link to="/doctors">Services</Link></li>
-          <li><Link to="/doctors">Courses</Link></li>
-          <li><Link to="/blog">Blog</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
+          <li><NavLink className="rounded-lg" to="/about">About us</NavLink></li>
+          <li><NavLink className="rounded-lg" to="/doctors">Doctors</NavLink></li>
+          <li><NavLink className="rounded-lg" to="/all-services">Services</NavLink></li>
+          <li><NavLink className="rounded-lg" to="/courses">Courses</NavLink></li>
+          <li><NavLink className="rounded-lg" to="/blog">Blog</NavLink></li>
+          <li><NavLink className="rounded-lg" to="/dashboard">Dashboard</NavLink></li>
         </ul>
 
       </div>

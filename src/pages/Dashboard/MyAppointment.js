@@ -31,7 +31,7 @@ const MyAppointment = () => {
             <h1 className='mb-2'><span className='text-xl font-bold text-primary'>My </span> <span className='text-xl font-bold text-secondary'>Appointments</span></h1>
 
             {
-                appointments.map((appointment, index) => <SingleAppointment
+                appointments?.map((appointment, index) => <SingleAppointment
                     key={appointment._id}
                     index={index + 1}
                     appointment={appointment}
