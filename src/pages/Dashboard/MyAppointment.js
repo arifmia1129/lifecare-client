@@ -4,7 +4,7 @@ import auth from '../../firebase.init';
 import AppointmentDetailsModal from './AppointmentDetailsModal';
 import CancelModal from './CancelModal';
 import SingleAppointment from './SingleAppointment';
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query';
 import { useAuthState } from 'react-firebase-hooks/auth';
 const MyAppointment = () => {
     const [myAppointment, setMyAppointment] = useState(null);

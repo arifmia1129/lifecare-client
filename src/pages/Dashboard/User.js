@@ -3,7 +3,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const User = ({ user,refetch }) => {
+const User = ({ user, refetch }) => {
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/${user?._id}`, {
             method: "PUT",
@@ -49,7 +49,7 @@ const User = ({ user,refetch }) => {
             })
             .then(data => {
                 if (data.acknowledged) {
-                    toast.success("Successfully canceled admin!");
+                    toast.success("Successfully removed admin!");
                     refetch();
                 }
             })

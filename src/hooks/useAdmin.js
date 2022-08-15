@@ -4,12 +4,13 @@ import auth from "../firebase.init";
 
 const useAdmin = (user) => {
     const [admin, setAdmin] = useState(false);
-    const email = user?.user?.email;
-
+    const [adminLoading, setAdminLoading] = useState(true);
+    const email = user?.email;
     if (email) {
         fetch(`http://localhost:5000/admin/${email}`, {
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                authorization:`Bearer ${localStorage.getItem("token")}`
             }
         })
             .then(res => {
@@ -20,10 +21,11 @@ const useAdmin = (user) => {
                 return res.json()
             })
             .then(data => {
-                setAdmin(data)
+                setAdmin(data);
+                setAdminLoading(false);
             })
     }
-    return admin;
+    return {admin, adminLoading};
 }
 
 export default useAdmin;

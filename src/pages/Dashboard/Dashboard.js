@@ -1,7 +1,14 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 const Dashboard = () => {
+    const [user, loading] = useAuthState(auth);
+    const { admin, adminLoading } = useAdmin(user);
+    if (loading || adminLoading) {
+        return <p className='h-screen flex justify-center items-center'>Loading...</p>;
+    }
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -16,18 +23,34 @@ const Dashboard = () => {
             <div class="drawer-side">
                 <label for="my-drawer-2" class="drawer-overlay"></label>
                 <ul class="menu p-4 overflow-y-auto w-fit bg-base-100 md:bg-transparent">
-                    <li>
-                        <NavLink className="rounded-lg" to="/dashboard/my-appointment">My Appointment</NavLink>
-                    </li>
+                    {
+                        !admin && <li>
+                            <NavLink className="rounded-lg" to="/dashboard/my-appointment">My Appointment</NavLink>
+                        </li>
+                    }
                     <li>
                         <NavLink className="rounded-lg" to="/dashboard/profile">My Profile</NavLink>
                     </li>
-                    <li>
-                        <NavLink className="rounded-lg" to="/dashboard/add-review">Add Review</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="rounded-lg" to="/dashboard/users">Users</NavLink>
-                    </li>
+                    {
+                        !admin && <li>
+                            <NavLink className="rounded-lg" to="/dashboard/add-review">Add Review</NavLink>
+                        </li>
+                    }
+                    {
+                        admin && <li>
+                            <NavLink className="rounded-lg" to="/dashboard/users">Users</NavLink>
+                        </li>
+                    }
+                    {
+                        admin && <li>
+                            <NavLink className="rounded-lg" to="/dashboard/doctors">Doctors</NavLink>
+                        </li>
+                    }
+                    {
+                        admin && <li>
+                            <NavLink className="rounded-lg" to="/dashboard/appointments">Appointments</NavLink>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

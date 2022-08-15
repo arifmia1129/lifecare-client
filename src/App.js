@@ -15,12 +15,14 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import MyAppointment from './pages/Dashboard/MyAppointment';
 import WelcomeDashboard from './pages/Dashboard/WelcomeDashboard';
 import PrivateRoute from "./pages/Authentication/PrivateRoute";
+import RequireAdmin from "./pages/Authentication/RequireAdmin";
 import UserProfile from './pages/Dashboard/UserProfile';
 import Payment from './pages/Dashboard/Payment';
 import AddReview from './pages/Dashboard/AddReview';
 import Users from './pages/Dashboard/Users';
 import AllServices from "./pages/AllServices";
 import Courses from "./pages/Courses/Courses";
+import Appointments from './pages/Dashboard/Appointments';
 
 function App() {
   return (
@@ -47,7 +49,8 @@ function App() {
             <Route path='/dashboard/profile' element={<UserProfile />} />
             <Route path='/dashboard/payment/:id' element={<Payment />} />
             <Route path='/dashboard/add-review' element={<AddReview />} />
-            <Route path='/dashboard/users' element={<Users />} />
+            <Route path='/dashboard/appointments' element={<Appointments />} />
+            <Route path='/dashboard/users' element={<RequireAdmin><Users /></RequireAdmin>} />
           </Route>
         </Routes>
       </Navbar>
