@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 
 const User = ({ user, refetch }) => {
     const makeAdmin = () => {
-        fetch(`http://localhost:5000/user/${user?._id}`, {
+        fetch(`https://lifecare-health.herokuapp.com/user/${user?._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -30,7 +30,7 @@ const User = ({ user, refetch }) => {
             })
     }
     const cancelAdmin = () => {
-        fetch(`http://localhost:5000/user/${user?._id}`, {
+        fetch(`https://lifecare-health.herokuapp.com/user/${user?._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

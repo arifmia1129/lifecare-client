@@ -6,7 +6,7 @@ import User from './User';
 
 const Users = () => {
     const { isLoading, data: users, refetch } = useQuery(['users'], () =>
-        fetch(`http://localhost:5000/users`, {
+        fetch(`https://lifecare-health.herokuapp.com/users`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -22,8 +22,8 @@ const Users = () => {
         return <p className='h-screen flex justify-center items-center'>Loading...</p>;
     }
     return (
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div className="overflow-x-auto">
+            <table className="table w-full">
                 <thead>
                     <tr>
                         <th className='w-full'>Users</th>

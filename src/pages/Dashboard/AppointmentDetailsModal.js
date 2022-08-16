@@ -4,11 +4,11 @@ const AppointmentDetailsModal = ({ myAppointment, setMyAppointment }) => {
     const { address, branch, consultant, date, department, length, patient, phone, time } = myAppointment;
     return (
         <div>
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label onClick={() => setMyAppointment(null)} for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 class="text-lg font-bold text-secondary">Check your appointment details!</h3>
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label onClick={() => setMyAppointment(null)} marginHeight="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="text-lg font-bold text-secondary">Check your appointment details!</h3>
                     <ul>
                         <li><span className='font-bold'>Branch:</span> {branch}</li>
                         <li><span className='font-bold'>Department:</span> {department}</li>

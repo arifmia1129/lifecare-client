@@ -12,49 +12,49 @@ const Details = ({ setDetails, setDetailsStatus }) => {
                 <p>Please give your information</p>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10 md:px-10 border-b py-5'>
                     <div>
-                        <label class="label">
-                            <span class="label-text font-bold text-primary">Patient</span>
+                        <label className="label">
+                            <span className="label-text font-bold text-primary">Patient</span>
                         </label>
                         <input {...register("patient", {
                             required: {
                                 value: true,
                                 message: "Patient is required"
                             }
-                        })} placeholder="Patient name" class="input input-bordered w-64" />
-                        <label class="label">
-                            <span class="label-text-alt text-red-500">
+                        })} placeholder="Patient name" className="input input-bordered w-64" />
+                        <label className="label">
+                            <span className="label-text-alt text-red-500">
                                 {errors.patient?.type === 'required' && errors.patient.message}
                             </span>
                         </label>
                     </div>
                     <div>
-                        <label class="label">
-                            <span class="label-text font-bold text-primary">Phone</span>
+                        <label className="label">
+                            <span className="label-text font-bold text-primary">Phone</span>
                         </label>
                         <input {...register("phone", {
                             required: {
                                 value: true,
                                 message: "Phone is required"
                             }
-                        })} placeholder="Phone number" class="input input-bordered w-64" />
-                        <label class="label">
-                            <span class="label-text-alt text-red-500">
+                        })} placeholder="Phone number" className="input input-bordered w-64" />
+                        <label className="label">
+                            <span className="label-text-alt text-red-500">
                                 {errors.phone?.type === 'required' && errors.phone.message}
                             </span>
                         </label>
                     </div>
                     <div>
-                        <label class="label">
-                            <span class="label-text font-bold text-primary">Address</span>
+                        <label className="label">
+                            <span className="label-text font-bold text-primary">Address</span>
                         </label>
                         <input {...register("address", {
                             required: {
                                 value: true,
                                 message: "Address is required"
                             }
-                        })} placeholder="Address" class="input input-bordered w-64" />
-                        <label class="label">
-                            <span class="label-text-alt text-red-500">
+                        })} placeholder="Address" className="input input-bordered w-64" />
+                        <label className="label">
+                            <span className="label-text-alt text-red-500">
                                 {errors.address?.type === 'required' && errors.address.message}
                             </span>
                         </label>

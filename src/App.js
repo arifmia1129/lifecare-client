@@ -49,7 +49,7 @@ function App() {
             <Route path='/dashboard/profile' element={<UserProfile />} />
             <Route path='/dashboard/payment/:id' element={<Payment />} />
             <Route path='/dashboard/add-review' element={<AddReview />} />
-            <Route path='/dashboard/appointments' element={<Appointments />} />
+            <Route path='/dashboard/appointments' element={<RequireAdmin><Appointments /></RequireAdmin>} />
             <Route path='/dashboard/users' element={<RequireAdmin><Users /></RequireAdmin>} />
           </Route>
         </Routes>

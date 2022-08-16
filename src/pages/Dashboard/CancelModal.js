@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 const CancelModal = ({ cancelAppointment, setCancelAppointment, refetch }) => {
     const { _id, address, branch, consultant, date, department, length, patient, phone, time } = cancelAppointment;
     const handleConfirm = () => {
-        fetch(`http://localhost:5000/appointment/${_id}`, {
+        fetch(`https://lifecare-health.herokuapp.com/appointment/${_id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
@@ -28,10 +28,10 @@ const CancelModal = ({ cancelAppointment, setCancelAppointment, refetch }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="cancel-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <h3 class="font-bold text-xl text-red-500">Are you sure cancel this appointment:</h3>
+            <input type="checkbox" id="cancel-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <h3 className="font-bold text-xl text-red-500">Are you sure cancel this appointment:</h3>
                     <ul>
                         <li><span className='font-bold'>Branch:</span> {branch}</li>
                         <li><span className='font-bold'>Department:</span> {department}</li>
@@ -43,9 +43,9 @@ const CancelModal = ({ cancelAppointment, setCancelAppointment, refetch }) => {
                         <li><span className='font-bold'>Session Length:</span> {length}</li>
                         <li><span className='font-bold'>Phone:</span> {phone}</li>
                     </ul>
-                    <div class="modal-action">
-                        <label onClick={() => setCancelAppointment(null)} for="cancel-modal" class="btn btn-secondary">No</label>
-                        <label onClick={handleConfirm} for="cancel-modal" class="btn btn-primary">Yes</label>
+                    <div className="modal-action">
+                        <label onClick={() => setCancelAppointment(null)} marginHeight="cancel-modal" className="btn btn-secondary">No</label>
+                        <label onClick={handleConfirm} marginHeight="cancel-modal" className="btn btn-primary">Yes</label>
 
                     </div>
                 </div>

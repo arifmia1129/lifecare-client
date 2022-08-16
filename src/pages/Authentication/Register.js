@@ -53,26 +53,26 @@ const Register = () => {
 
 
     return (
-        <div class="card-body mx-auto w-[95%] md:w-1/2 lg:w-[30%]">
+        <div className="card-body mx-auto w-[95%] md:w-1/2 lg:w-[30%]">
             <div className='md:shadow-xl md:px-5 md:py-10 md:border rounded-xl'>
                 <h3 className='text-center font-bold text-xl'>Register</h3>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Name</span>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Name</span>
                     </label>
-                    <input onChange={e => setName(e.target.value)} type="text" placeholder="name" class="input input-bordered focus:outline-none" />
+                    <input onChange={e => setName(e.target.value)} type="text" placeholder="name" className="input input-bordered focus:outline-none" />
                 </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Email</span>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Email</span>
                     </label>
-                    <input onChange={e => setEmail(e.target.value)} type="text" placeholder="email" class="input input-bordered focus:outline-none" />
+                    <input onChange={e => setEmail(e.target.value)} type="text" placeholder="email" className="input input-bordered focus:outline-none" />
                 </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-text">Password</span>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Password</span>
                     </label>
-                    <div class="flex justify-between items-center input input-bordered">
+                    <div className="flex justify-between items-center input input-bordered">
                         <input className='outline-none' onChange={e => setPassword(e.target.value)} type={show ? "text" : "password"} placeholder="password" />
                         {
                             password &&
@@ -83,15 +83,15 @@ const Register = () => {
 
 
                 </div>
-                <div class="form-control mt-6">
-                    <label class="label mx-auto">
+                <div className="form-control mt-6">
+                    <label className="label mx-auto">
                         <p>
                             <small>Have a account? <Link className='text-blue-500' to="/login">Login now!</Link></small>
                         </p>
                     </label>
-                    <button onClick={handleRegister} class="btn btn-primary">Register</button>
+                    <button onClick={handleRegister} className="btn btn-primary">Register</button>
                 </div>
-                <div class="divider">OR</div>
+                <div className="divider">OR</div>
                 <div className='flex justify-center items-center'>
                     <button onClick={() => {
                         localStorage.removeItem("token");

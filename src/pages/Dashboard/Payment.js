@@ -13,7 +13,7 @@ const Payment = () => {
     const stripePromise = loadStripe('pk_test_51L0drqHjlyVvU0H8WCq85L5S01GNgzi6FPnNqOCaYjqhSDHM985EIVLVhiw6nFnMCGSQDYowAf8tPHF1qhtBvNzh0071TRQkRm');
     useEffect(() => {
         const getAppointment = async () => {
-            const { data } = await axios.get(`http://localhost:5000/appointment/${id}`, {
+            const { data } = await axios.get(`https://lifecare-health.herokuapp.com/appointment/${id}`, {
                 headers: {
                     "content-type": "application/json",
                     authorization: `Bearer ${localStorage.getItem("token")}`

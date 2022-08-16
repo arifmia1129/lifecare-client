@@ -44,10 +44,10 @@ const Time = ({ setDateTime, setDateTimeStatus }) => {
                     <p>Please select time slot</p>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-10 md:px-10'>
                         <div>
-                            <label class="label">
-                                <span class="label-text font-bold text-primary">Time</span>
+                            <label className="label">
+                                <span className="label-text font-bold text-primary">Time</span>
                             </label>
-                            <select onChange={e => setTime(e.target.value)} required defaultValue="" class="select select-bordered w-64">
+                            <select onChange={e => setTime(e.target.value)} required defaultValue="" className="select select-bordered w-64">
                                 <option disabled value="">Time</option>
                                 {
                                     timeSlot10.map((time, index) => <option

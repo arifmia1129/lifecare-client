@@ -3,11 +3,11 @@ import team from "../assests/images/header-2.jpg";
 
 const About = () => {
     return (
-        <div class="hero">
-            <div class="hero-content flex-col lg:flex-row">
+        <div className="hero">
+            <div className="hero-content flex-col lg:flex-row">
 
                 <div>
-                    <h1 class="text-3xl font-bold text-primary">About Us</h1>
+                    <h1 className="text-3xl font-bold text-primary">About Us</h1>
                     <div>
                         <p className="py-3">
                             LifeCare started its journey in 2017 with the goal to redefine mental health care and become country’s top community-based organization dedicated to serving those suffering from physical and mental disorders.
@@ -23,7 +23,7 @@ const About = () => {
                         </p>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-bold text-primary">Our Mission</h1>
+                        <h1 className="text-3xl font-bold text-primary">Our Mission</h1>
                         <div>
                             <p className="py-3">
                                 LifeCare strives to serve health care services locally and globally. Its goal is to be easily accessible to everyone who needs health support, be it mental or physical. Moreover, it really wants to educate people about mental health, cure mental disorders, and achieve victory over mental illness.
@@ -31,7 +31,7 @@ const About = () => {
                         </div>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-bold text-primary">Our Vision</h1>
+                        <h1 className="text-3xl font-bold text-primary">Our Vision</h1>
                         <div>
                             <p className="py-3">
                                 LifeCare wants to be the leading health organization in the country that provides top-class comprehensive health services in 64 districts of Bangladesh. We are working to eradicate superstitions, stigmas about mental illness from the society and encourage people to fight against mental disorders with love, care, courage and proven scientific knowledge. It yearns to be the first choice of people regarding physical health services too in the coming years.
@@ -39,7 +39,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <img src={team} class="max-w-sm rounded-lg shadow-2xl w-full" alt='' />
+                <img src={team} className="max-w-sm rounded-lg shadow-2xl w-full" alt='' />
             </div>
         </div>
     );

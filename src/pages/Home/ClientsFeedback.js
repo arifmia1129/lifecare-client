@@ -7,7 +7,7 @@ const ClientsFeedback = () => {
     const [comments, setComments] = useState([]);
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios.get("http://localhost:5000/review")
+            const { data } = await axios.get("https://lifecare-health.herokuapp.com/review")
             if (data.length > 6) {
                 const newArr = [];
                 for (let i = (data.length - 6); i < data.length; i++) {
@@ -59,11 +59,11 @@ const ClientsFeedback = () => {
                     keyBoardControl={true}
                     customTransition="all .5"
                     transitionDuration={1000}
-                    containerClass="carousel-container"
+                    containerclassName="carousel-container"
                     removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
                     deviceType={this?.props?.deviceType}
-                    dotListClass="custom-dot-list-style"
-                    itemClass="carousel-item-padding-40-px"
+                    dotListclassName="custom-dot-list-style"
+                    itemclassName="carousel-item-padding-40-px"
                 >
                     {
                         comments.map(comment => <div key={comment._id} className='mb-10 md:border md:p-5 m-5'>

@@ -22,11 +22,11 @@ const Appointment = () => {
                 <p className='text-xl font-bold'>+8801849676331</p>
             </div>
             <div>
-                <ul class="steps md:w-full">
+                <ul className="steps md:w-full">
                     <li className={`step ${serviceStatus && "step-primary"}`}>Service</li>
-                    <li class={`step ${dateTimeStatus && "step-primary"}`}>Time</li>
-                    <li class={`step ${detailsStatus && "step-primary"}`}>Details</li>
-                    <li class={`step ${confirmState && "step-primary"}`}>Done</li>
+                    <li className={`step ${dateTimeStatus && "step-primary"}`}>Time</li>
+                    <li className={`step ${detailsStatus && "step-primary"}`}>Details</li>
+                    <li className={`step ${confirmState && "step-primary"}`}>Done</li>
                 </ul>
             </div>
             {

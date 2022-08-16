@@ -8,7 +8,7 @@ const UserProfile = () => {
     const [user, loading] = useAuthState(auth);
     const [status, setStatus] = useState(false);
     const { isLoading, data: userInfo, refetch } = useQuery(['user', user], () =>
-        fetch(`http://localhost:5000/user?email=${user?.email}`, {
+        fetch(`https://lifecare-health.herokuapp.com/user?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -26,7 +26,7 @@ const UserProfile = () => {
         const name = e.target.name.value;
         const phone = e.target.phone.value;
         const address = e.target.address.value;
-        fetch(`http://localhost:5000/user/${userInfo?._id}`, {
+        fetch(`https://lifecare-health.herokuapp.com/user/${userInfo?._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -61,8 +61,8 @@ const UserProfile = () => {
         <div>
             {
                 !status && <div>
-                    <div class="card bg-base-100 shadow-xl border">
-                        <div class="card-body">
+                    <div className="card bg-base-100 shadow-xl border">
+                        <div className="card-body">
                             <h1 className='mb-2'><span className='text-xl font-bold text-primary'>Your </span> <span className='text-xl font-bold text-secondary'>Profile</span></h1>
                             <p>Email: {userInfo?.email}</p>
                             <p>Name: {userInfo?.name}</p>
@@ -80,26 +80,26 @@ const UserProfile = () => {
             {
                 status && <div>
                     <form onSubmit={handleSubmit}>
-                        <div class="card bg-base-100 shadow-xl border">
-                            <div class="card-body">
+                        <div className="card bg-base-100 shadow-xl border">
+                            <div className="card-body">
                                 <h1 className='mb-2'><span className='text-xl font-bold text-primary'>Edit </span> <span className='text-xl font-bold text-secondary'>Profile</span></h1>
-                                <div class="form-control w-full max-w-xs">
-                                    <label class="label">
-                                        <span class="label-text">Name</span>
+                                <div className="form-control w-full max-w-xs">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
                                     </label>
-                                    <input name='name' defaultValue={userInfo?.name} type="text" placeholder="Enter your name" class="input input-bordered w-full max-w-xs" />
+                                    <input name='name' defaultValue={userInfo?.name} type="text" placeholder="Enter your name" className="input input-bordered w-full max-w-xs" />
                                 </div>
-                                <div class="form-control w-full max-w-xs">
-                                    <label class="label">
-                                        <span class="label-text">Phone</span>
+                                <div className="form-control w-full max-w-xs">
+                                    <label className="label">
+                                        <span className="label-text">Phone</span>
                                     </label>
-                                    <input name='phone' defaultValue={userInfo?.phone} type="text" placeholder="Enter your phone" class="input input-bordered w-full max-w-xs" />
+                                    <input name='phone' defaultValue={userInfo?.phone} type="text" placeholder="Enter your phone" className="input input-bordered w-full max-w-xs" />
                                 </div>
-                                <div class="form-control w-full max-w-xs">
-                                    <label class="label">
-                                        <span class="label-text">Address</span>
+                                <div className="form-control w-full max-w-xs">
+                                    <label className="label">
+                                        <span className="label-text">Address</span>
                                     </label>
-                                    <input name='address' defaultValue={userInfo?.address} type="text" placeholder="Enter your address" class="input input-bordered w-full max-w-xs" />
+                                    <input name='address' defaultValue={userInfo?.address} type="text" placeholder="Enter your address" className="input input-bordered w-full max-w-xs" />
                                 </div>
                             </div>
                             <input className='btn btn-secondary w-32 m-2' type="submit" value="Save" />

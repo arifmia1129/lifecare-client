@@ -9,7 +9,7 @@ const useToken = (user) => {
     }
 
     if (email) {
-        fetch(`http://localhost:5000/user`, {
+        fetch(`https://lifecare-health.herokuapp.com/user`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

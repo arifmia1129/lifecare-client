@@ -32,7 +32,7 @@ const Confirm = ({ service, dateTime, details, setService, setServiceStatus, set
                 </div>
             </div>
             <div className='flex justify-center items-center my-5'>
-                <label for="confirm-modal" class="btn modal-button btn-primary">Next</label>
+                <label marginHeight="confirm-modal" className="btn modal-button btn-primary">Next</label>
             </div>
             {
                 (service && dateTime && details) && <ConfirmModal service={service} setService={setService} setServiceStatus={setServiceStatus} dateTime={dateTime} setDateTime={setDateTime} setDateTimeStatus={setDateTimeStatus} details={details} setDetails={setDetails} setDetailsStatus={setDetailsStatus} setConfirmStatus={setConfirmStatus} />

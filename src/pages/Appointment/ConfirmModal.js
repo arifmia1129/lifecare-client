@@ -35,7 +35,7 @@ const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDate
         setDetailsStatus(false);
     }
     const handleConfirm = () => {
-        fetch("http://localhost:5000/appointment", {
+        fetch("https://lifecare-health.herokuapp.com/appointment", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -57,13 +57,13 @@ const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDate
     }
     return (
         <div>
-            <input type="checkbox" id="confirm-modal" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg text-red-500">Are you sure confirm this appointment?</h3>
-                    <div class="modal-action">
-                        <label onClick={handleEdit} for="confirm-modal" class="btn btn-error text-white">No</label>
-                        <label onClick={handleConfirm} for="confirm-modal" class="btn btn-success text-white">Yes</label>
+            <input type="checkbox" id="confirm-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg text-red-500">Are you sure confirm this appointment?</h3>
+                    <div className="modal-action">
+                        <label onClick={handleEdit} marginHeight="confirm-modal" className="btn btn-error text-white">No</label>
+                        <label onClick={handleConfirm} marginHeight="confirm-modal" className="btn btn-success text-white">Yes</label>
                     </div>
                 </div>
             </div>

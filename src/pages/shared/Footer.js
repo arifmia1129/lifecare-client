@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer class="footer footer-center py-10 bg-base-200 text-base-content rounded">
+        <footer className="footer footer-center py-10 bg-base-200 text-base-content rounded">
             <div>
                 <div>
                     <div>
@@ -21,9 +21,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <div class="mapouter">
-                        <div class="gmap_canvas">
-                            <iframe className='md:w-[30vw] w-[90vw] h-64' title='map' id="gmap_canvas" src="https://maps.google.com/maps?q=Gobindaganj&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                    <div className="mapouter">
+                        <div className="gmap_canvas">
+                            <iframe className='md:w-[30vw] w-[90vw] h-64' title='map' id="gmap_canvas" src="https://maps.google.com/maps?q=Gobindaganj&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
                             </iframe>
                         </div>
                     </div>
