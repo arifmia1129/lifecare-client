@@ -22,7 +22,7 @@ const CheckoutForm = ({ appointment }) => {
     const { _id, branch, consultant, date, department, patient, phone, time, email } = appointment;
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://lifecare-health.herokuapp.com/create-payment-intent", {
+        fetch("https://lifecare-ootb.onrender.com/create-payment-intent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ price: 10 }),
@@ -85,7 +85,7 @@ const CheckoutForm = ({ appointment }) => {
         }
         else {
             setLoading(true);
-            fetch(`https://lifecare-health.herokuapp.com/appointment/${_id}`, {
+            fetch(`https://lifecare-ootb.onrender.com/appointment/${_id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json",
@@ -102,7 +102,7 @@ const CheckoutForm = ({ appointment }) => {
                 })
                 .then(data => {
                     if (data.acknowledged && (data.modifiedCount || data.upsertedCount)) {
-                        fetch("https://lifecare-health.herokuapp.com/payment", {
+                        fetch("https://lifecare-ootb.onrender.com/payment", {
                             method: "POST",
                             headers: {
                                 "content-type": "application/json",

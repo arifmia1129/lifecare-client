@@ -7,7 +7,7 @@ const useAdmin = (user) => {
     const [adminLoading, setAdminLoading] = useState(true);
     const email = user?.email;
     if (email) {
-        fetch(`https://lifecare-health.herokuapp.com/admin/${email}`, {
+        fetch(`https://lifecare-ootb.onrender.com/admin/${email}`, {
             headers: {
                 "content-type": "application/json",
                 authorization: `Bearer ${localStorage.getItem("token")}`

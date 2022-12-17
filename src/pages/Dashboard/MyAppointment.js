@@ -11,7 +11,7 @@ const MyAppointment = () => {
     const [cancelAppointment, setCancelAppointment] = useState(null);
     const [user, loading] = useAuthState(auth);
     const { isLoading, data: appointments, refetch } = useQuery(['appointments', user], () =>
-        fetch(`https://lifecare-health.herokuapp.com/appointment?email=${user?.email}`, {
+        fetch(`https://lifecare-ootb.onrender.com/appointment?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }

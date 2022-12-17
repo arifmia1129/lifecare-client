@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 const Appointment = ({ appointment, refetch }) => {
     const { _id, department, status, tnxId } = appointment;
     const handleAccept = () => {
-        fetch(`https://lifecare-health.herokuapp.com/appointment/${_id}`, {
+        fetch(`https://lifecare-ootb.onrender.com/appointment/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -29,7 +29,7 @@ const Appointment = ({ appointment, refetch }) => {
             })
     }
     const handlePending = () => {
-        fetch(`https://lifecare-health.herokuapp.com/appointment/${_id}`, {
+        fetch(`https://lifecare-ootb.onrender.com/appointment/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -52,7 +52,7 @@ const Appointment = ({ appointment, refetch }) => {
             })
     }
     const handleDelete = () => {
-        fetch(`https://lifecare-health.herokuapp.com/appointment/${_id}`, {
+        fetch(`https://lifecare-ootb.onrender.com/appointment/${_id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`

@@ -35,7 +35,7 @@ const ConfirmModal = ({ service, setService, setServiceStatus, dateTime, setDate
         setDetailsStatus(false);
     }
     const handleConfirm = () => {
-        fetch("https://lifecare-health.herokuapp.com/appointment", {
+        fetch("https://lifecare-ootb.onrender.com/appointment", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

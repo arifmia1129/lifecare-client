@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 const CancelModal = ({ cancelAppointment, setCancelAppointment, refetch }) => {
     const { _id, address, branch, consultant, date, department, length, patient, phone, time } = cancelAppointment;
     const handleConfirm = () => {
-        fetch(`https://lifecare-health.herokuapp.com/appointment/${_id}`, {
+        fetch(`https://lifecare-ootb.onrender.com/appointment/${_id}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`

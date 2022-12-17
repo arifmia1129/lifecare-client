@@ -6,7 +6,7 @@ import Appointment from './Appointment';
 
 const Appointments = () => {
     const { isLoading, data: appointments, refetch } = useQuery(['appointments'], () =>
-        fetch(`https://lifecare-health.herokuapp.com/appointments`, {
+        fetch(`https://lifecare-ootb.onrender.com/appointments`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }

@@ -6,7 +6,7 @@ import Doctor from './Doctor';
 const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
     useEffect(() => {
-        fetch("https://lifecare-health.herokuapp.com/doctors")
+        fetch("https://lifecare-ootb.onrender.com/doctors")
             .then(res => res.json())
             .then(data => setDoctors(data))
     }, []);

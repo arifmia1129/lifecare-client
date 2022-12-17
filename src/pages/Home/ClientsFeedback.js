@@ -7,7 +7,7 @@ const ClientsFeedback = () => {
     const [comments, setComments] = useState([]);
     useEffect(() => {
         const getData = async () => {
-            const { data } = await axios.get("https://lifecare-health.herokuapp.com/review")
+            const { data } = await axios.get("https://lifecare-ootb.onrender.com/review")
             if (data.length > 6) {
                 const newArr = [];
                 for (let i = (data.length - 6); i < data.length; i++) {

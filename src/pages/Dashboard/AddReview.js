@@ -7,7 +7,7 @@ const AddReview = () => {
     const [name, setName] = useState("");
     const [comment, setComment] = useState("");
     const handleAdded = () => {
-        fetch("https://lifecare-health.herokuapp.com/review", {
+        fetch("https://lifecare-ootb.onrender.com/review", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

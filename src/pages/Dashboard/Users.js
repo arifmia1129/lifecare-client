@@ -6,7 +6,7 @@ import User from './User';
 
 const Users = () => {
     const { isLoading, data: users, refetch } = useQuery(['users'], () =>
-        fetch(`https://lifecare-health.herokuapp.com/users`, {
+        fetch(`https://lifecare-ootb.onrender.com/users`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }

@@ -8,7 +8,7 @@ const UserProfile = () => {
     const [user, loading] = useAuthState(auth);
     const [status, setStatus] = useState(false);
     const { isLoading, data: userInfo, refetch } = useQuery(['user', user], () =>
-        fetch(`https://lifecare-health.herokuapp.com/user?email=${user?.email}`, {
+        fetch(`https://lifecare-ootb.onrender.com/user?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -26,7 +26,7 @@ const UserProfile = () => {
         const name = e.target.name.value;
         const phone = e.target.phone.value;
         const address = e.target.address.value;
-        fetch(`https://lifecare-health.herokuapp.com/user/${userInfo?._id}`, {
+        fetch(`https://lifecare-ootb.onrender.com/user/${userInfo?._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
